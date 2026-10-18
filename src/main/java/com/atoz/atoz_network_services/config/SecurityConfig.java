@@ -20,24 +20,25 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .cors(Customizer.withDefaults())
             .authorizeHttpRequests(auth -> auth
+            	    .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
-                // Customers can submit enquiries without logging in
-                .requestMatchers(
-                    HttpMethod.POST, "/api/enquiries", "/api/complaints",
-                    "/api/service-requests"
-                ).permitAll()
+            	    .requestMatchers(
+            	        HttpMethod.POST,
+            	        "/api/enquiries",
+            	        "/api/complaints",
+            	        "/api/service-requests"
+            	    ).permitAll()
 
-                // Enquiry details require admin authentication
-                .requestMatchers(
-                    "/api/enquiries/**",
-                    "/api/customers/**",
-                    "/api/plans/**",
-                    "/api/service-requests/**",
-                    "/api/complaints/**"
-                ).authenticated()
+            	    .requestMatchers(
+            	        "/api/enquiries/**",
+            	        "/api/customers/**",
+            	        "/api/plans/**",
+            	        "/api/service-requests/**",
+            	        "/api/complaints/**"
+            	    ).authenticated()
 
-                .anyRequest().permitAll()
-            )
+            	    .anyRequest().permitAll()
+            	)
             .httpBasic(Customizer.withDefaults());
 
         return http.build();

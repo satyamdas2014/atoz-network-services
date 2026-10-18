@@ -15,7 +15,10 @@ import com.atoz.atoz_network_services.ServiceImpl.EmailService;
 
 @RestController
 @RequestMapping("/api/enquiries")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {
+	    "http://localhost:4200",
+	    "https://atoz-network-frontend.onrender.com"
+	})
 public class CustomerEnquiryController {
 
     private final CustomerEnquiryRepository repository;

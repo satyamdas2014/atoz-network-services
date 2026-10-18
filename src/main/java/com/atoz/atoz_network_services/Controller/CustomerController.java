@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/customers")
-@CrossOrigin(origins = "http://localhost:4200")
-public class CustomerController {
+@CrossOrigin(origins = {
+	    "http://localhost:4200",
+	    "https://atoz-network-frontend.onrender.com"
+	})public class CustomerController {
 
     private final CustomerRepository customerRepository;
 

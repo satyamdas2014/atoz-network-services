@@ -20,7 +20,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/complaints")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {
+	    "http://localhost:4200",
+	    "https://atoz-network-frontend.onrender.com"
+	})
 public class ComplaintController {
 
 	private final ComplaintRepository repository;

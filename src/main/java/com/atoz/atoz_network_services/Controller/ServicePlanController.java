@@ -13,7 +13,10 @@ import com.atoz.atoz_network_services.Repsitory.ServicePlanRepository;
 
 @RestController
 @RequestMapping("/api/plans")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {
+	    "http://localhost:4200",
+	    "https://atoz-network-frontend.onrender.com"
+	})
 public class ServicePlanController {
 
     private final ServicePlanRepository repository;

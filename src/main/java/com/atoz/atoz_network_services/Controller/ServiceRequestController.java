@@ -21,7 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/service-requests")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {
+	    "http://localhost:4200",
+	    "https://atoz-network-frontend.onrender.com"
+	})
 public class ServiceRequestController {
 
 	private final ServiceRequestRepository repository;
